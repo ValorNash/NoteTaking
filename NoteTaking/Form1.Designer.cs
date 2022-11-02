@@ -91,6 +91,7 @@
 			this.bttNew.TabIndex = 5;
 			this.bttNew.Text = "New";
 			this.bttNew.UseVisualStyleBackColor = true;
+			this.bttNew.Click += new System.EventHandler(this.bttNew_Click);
 			// 
 			// bttDel
 			// 
@@ -109,6 +110,7 @@
 			this.bttSave.TabIndex = 7;
 			this.bttSave.Text = "Save";
 			this.bttSave.UseVisualStyleBackColor = true;
+			this.bttSave.Click += new System.EventHandler(this.bttSave_Click);
 			// 
 			// bttRead
 			// 
