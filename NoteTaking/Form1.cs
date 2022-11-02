@@ -30,20 +30,48 @@ namespace NoteTaking
 			table.Columns.Add("Messages", typeof(String));
 
 			dataGridView1.DataSource = table;
+
+			dataGridView1.Columns["Messages"].Visible = false;
+			dataGridView1.Columns["Title"].Width = 220;
 		}
 
 		private void bttNew_Click(object sender, EventArgs e)
 		{
-			TxtTitle.Clear();
+			txtTitle.Clear();
 			txtMessage.Clear();
 		}
 
 		private void bttSave_Click(object sender, EventArgs e)
 		{
-			table.Rows.Add(TxtTitle.Text, txtMessage.Text);
+			table.Rows.Add(txtTitle.Text, txtMessage.Text);
 
-			TxtTitle.Clear();
+			txtTitle.Clear();
 			txtMessage.Clear();
+		}
+
+		private void bttRead_Click(object sender, EventArgs e)
+		{
+			int index = dataGridView1.CurrentCell.RowIndex;
+
+			if (index > -1)
+			{
+				txtTitle.Text = table.Rows[index].ItemArray[0].ToString();
+				txtMessage.Text = table.Rows[index].ItemArray[1].ToString();
+
+			}
+
+		}
+
+		private void bttDel_Click(object sender, EventArgs e)
+		{
+			int index = dataGridView1.CurrentCell.RowIndex;
+
+			table.Rows[index].Delete();
+		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
 		}
 	}
 }

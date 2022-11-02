@@ -30,7 +30,7 @@
 		{
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.TxtTitle = new System.Windows.Forms.TextBox();
+			this.txtTitle = new System.Windows.Forms.TextBox();
 			this.txtMessage = new System.Windows.Forms.TextBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.bttNew = new System.Windows.Forms.Button();
@@ -59,29 +59,36 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Message";
 			// 
-			// TxtTitle
+			// txtTitle
 			// 
-			this.TxtTitle.Location = new System.Drawing.Point(71, 33);
-			this.TxtTitle.Name = "TxtTitle";
-			this.TxtTitle.Size = new System.Drawing.Size(240, 23);
-			this.TxtTitle.TabIndex = 2;
+			this.txtTitle.Location = new System.Drawing.Point(71, 33);
+			this.txtTitle.Name = "txtTitle";
+			this.txtTitle.Size = new System.Drawing.Size(240, 23);
+			this.txtTitle.TabIndex = 2;
 			// 
 			// txtMessage
 			// 
 			this.txtMessage.Location = new System.Drawing.Point(23, 121);
 			this.txtMessage.Multiline = true;
 			this.txtMessage.Name = "txtMessage";
-			this.txtMessage.Size = new System.Drawing.Size(472, 287);
+			this.txtMessage.Size = new System.Drawing.Size(508, 287);
 			this.txtMessage.TabIndex = 3;
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AllowUserToResizeColumns = false;
+			this.dataGridView1.AllowUserToResizeRows = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(553, 33);
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowTemplate.Height = 25;
 			this.dataGridView1.Size = new System.Drawing.Size(225, 275);
 			this.dataGridView1.TabIndex = 4;
+			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// bttNew
 			// 
@@ -101,10 +108,11 @@
 			this.bttDel.TabIndex = 6;
 			this.bttDel.Text = "Delete";
 			this.bttDel.UseVisualStyleBackColor = true;
+			this.bttDel.Click += new System.EventHandler(this.bttDel_Click);
 			// 
 			// bttSave
 			// 
-			this.bttSave.Location = new System.Drawing.Point(501, 384);
+			this.bttSave.Location = new System.Drawing.Point(553, 384);
 			this.bttSave.Name = "bttSave";
 			this.bttSave.Size = new System.Drawing.Size(68, 24);
 			this.bttSave.TabIndex = 7;
@@ -120,6 +128,7 @@
 			this.bttRead.TabIndex = 8;
 			this.bttRead.Text = "Read";
 			this.bttRead.UseVisualStyleBackColor = true;
+			this.bttRead.Click += new System.EventHandler(this.bttRead_Click);
 			// 
 			// Form1
 			// 
@@ -132,7 +141,7 @@
 			this.Controls.Add(this.bttNew);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.txtMessage);
-			this.Controls.Add(this.TxtTitle);
+			this.Controls.Add(this.txtTitle);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Name = "Form1";
@@ -148,7 +157,7 @@
 
 		private Label label1;
 		private Label label2;
-		private TextBox TxtTitle;
+		private TextBox txtTitle;
 		private TextBox txtMessage;
 		private DataGridView dataGridView1;
 		private Button bttNew;
